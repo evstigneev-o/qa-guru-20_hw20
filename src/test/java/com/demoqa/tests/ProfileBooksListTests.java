@@ -1,6 +1,8 @@
 package com.demoqa.tests;
 
 import com.codeborne.selenide.Selenide;
+import com.demoqa.api.AuthorizationApi;
+import com.demoqa.api.BooksApi;
 import com.demoqa.models.AddBooksListModel;
 import com.demoqa.models.LoginResponseModel;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +16,9 @@ import static com.demoqa.helpers.AddCookie.addCookiesToBrowser;
 import static com.demoqa.tests.TestData.credentials;
 
 public class ProfileBooksListTests extends BaseTest {
-    LoginResponseModel loginResponse;
+    private final AuthorizationApi authorizationApi = new AuthorizationApi();
+    private final BooksApi booksApi = new BooksApi();
+    private LoginResponseModel loginResponse;
 
     @BeforeEach
     public void init() {
@@ -45,6 +49,5 @@ public class ProfileBooksListTests extends BaseTest {
         $("#closeSmallModal-ok").click();
         Selenide.confirm();
         $("[id='see-book-Git Pocket Guide']").shouldNot(visible);
-
     }
 }

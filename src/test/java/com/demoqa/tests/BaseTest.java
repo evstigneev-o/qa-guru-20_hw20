@@ -7,8 +7,6 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 
 public class BaseTest {
-    AuthorizationApi authorizationApi = new AuthorizationApi();
-    BooksApi booksApi = new BooksApi();
 
     @BeforeAll
     static void setup() {
